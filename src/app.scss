@@ -1,4 +1,5 @@
 @use 'global';
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 *{
     box-sizing: border-box;
@@ -12,12 +13,50 @@
     cursor: default;
     
   }
-header{
+  
+
+
+  /* Mixins */
+  %comingSoonPageText {
+    font-family: 'Pacifico', cursive;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 48px;
+    line-height: 1.00em;
+  }
+
+
+  /*  Main Styles */
+main{
+  background-color: #26262A;
+}
+/* Footer Styles*/
+footer{
+  height: 100px;
+  width: 100%;
+  div{
+    height: 100%;
+    background-color: global.$header-bg-color;
+    a{
+      margin-right: 30px;
+    }
+    .icon-3d {
+      padding: 10px;
+      -webkit-animation: icon3d 200ms 10;
+      animation: icon3d 200ms 10;
+      color: #fff;
+      &:hover {
+        -webkit-animation: icon3d 200ms infinite;
+              animation: icon3d 200ms infinite;
+      }
+    }
+  }
+}
+/*   Header Styles */
+ header{
   h2{
     color:global.$title-span-color;
   }
-
-  
   .header-container{
     display: block;
     align-items: center;
@@ -35,7 +74,6 @@ header{
     span{
       color:global.$title-span-color;
     }
-
   }
   ul{
     display: flex;
@@ -52,6 +90,9 @@ header{
   }
 }
 
+
+
+ /* About Page Styles  */
 
 .about-r{
   padding: 15% 0;
@@ -102,7 +143,67 @@ header{
   }
 }
 
-main{
-  background-color: #26262A;
-  height: 1500px;
+
+
+
+/* My Skills Styles */
+.skills-r{
+  padding: 15% 0;
+  height: 90vh;
+  h1{
+    @extend %comingSoonPageText;
+  }
+}
+/* My Works Styles */
+.mywork-r{
+  padding: 15% 0;
+  height: 90vh;
+  h1{
+    @extend %comingSoonPageText;
+  }
+}
+
+@keyframes icon3d {
+  0% {
+    text-shadow: 5px 4px global.$redColor, -5px -6px global.$blueColor;
+  }
+  25% {
+    text-shadow: -5px -6px global.$redColor, 5px 4px global.$blueColor;
+  }
+  50% {
+    text-shadow: 5px -4px global.$redColor, -8px 4px global.$blueColor;
+  }
+  75% {
+    text-shadow: -8px -4px global.$redColor, -5px -4px global.$blueColor;
+  }
+  100% {
+    text-shadow: -5px 0 global.$redColor, 5px -4px global.$blueColor;
+  }
+}
+
+
+
+@media (max-width:600px){
+header{
+  .header-container{
+    
+    padding: 0 10px;
+    
+  }
+}
+.about-r{
+  .trails-main{
+    justify-content: flex-start;
+  }
+  .trails-text{
+    font-size: 3.5em;
+  }
+}
+
+footer{
+  i{
+    width: 12px;
+    height: 12px;
+  }
+}
 }
