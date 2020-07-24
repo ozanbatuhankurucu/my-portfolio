@@ -14,9 +14,19 @@
     
   }
   
-
-
   /* Mixins */
+@mixin blogEntryDiv($backgroundColor){
+  font-family: global.$nav-item-style;
+  border:1px solid black;
+  border-radius: 15%;
+  margin: 0px 15px;
+  height: 150px;
+  width: 200px;
+  background-color: $backgroundColor;
+}
+
+
+  /* Extend/Inheritance */
   %comingSoonPageText {
     font-family: 'Pacifico', cursive;
     font-weight: 400;
@@ -24,6 +34,18 @@
     font-size: 48px;
     line-height: 1.00em;
   }
+
+/*   */
+.skills-r,.mywork-r,.blog-r{
+  padding: 15% 0;
+  height: 90vh;
+  h1{
+    @extend %comingSoonPageText;
+  }
+}
+
+
+
 
 
   /*  Main Styles */
@@ -147,39 +169,83 @@ footer{
 
 
 /* My Skills Styles */
-.skills-r{
-  padding: 15% 0;
-  height: 90vh;
-  h1{
-    @extend %comingSoonPageText;
-  }
-}
+
 /* My Works Styles */
-.mywork-r{
-  padding: 15% 0;
-  height: 90vh;
-  h1{
-    @extend %comingSoonPageText;
-  }
+
+/* My Blog Styles*/
+.blog-r{
+.guest-div{
+  @include blogEntryDiv(global.$palevio);
 }
+.admin-div{
+  @include blogEntryDiv(global.$header-bg-color);
+}
+}
+
+/* My Login Styles*/
+
+.login-form-cont{
+  text-align: center;
+  padding: 15px;
+  height: 400px;
+  width: 350px;
+  input{
+    width: 100%;
+    margin-top: 15px;
+    height: 35px;
+      margin: 15px auto;
+      border: none; /* <-- This thing here */
+      border:solid 1px #ccc;
+      border-radius: 15px;
+      text-align: center;
+  }
+  input:focus {
+    outline: none !important;
+    border:1px solid black;
+    box-shadow: 0 0 10px #719ECE;
+}
+h3{
+  color: white;
+}
+button{
+  background-color: #8585D6;
+  border: none;
+  padding: 5px 25px;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+  margin-top: 15px;
+  float: right;
+}
+  
+}
+
+
+
 
 @keyframes icon3d {
   0% {
-    text-shadow: 5px 4px global.$redColor, -5px -6px global.$blueColor;
+    text-shadow: 5px 4px global.$palevio, -5px -6px global.$blueColor;
   }
   25% {
-    text-shadow: -5px -6px global.$redColor, 5px 4px global.$blueColor;
+    text-shadow: -5px -6px global.$palevio, 5px 4px global.$blueColor;
   }
   50% {
-    text-shadow: 5px -4px global.$redColor, -8px 4px global.$blueColor;
+    text-shadow: 5px -4px global.$palevio, -8px 4px global.$blueColor;
   }
   75% {
-    text-shadow: -8px -4px global.$redColor, -5px -4px global.$blueColor;
+    text-shadow: -8px -4px global.$palevio, -5px -4px global.$blueColor;
   }
   100% {
-    text-shadow: -5px 0 global.$redColor, 5px -4px global.$blueColor;
+    text-shadow: -5px 0 global.$palevio, 5px -4px global.$blueColor;
   }
 }
+
+
+
+
+
+
 
 
 
